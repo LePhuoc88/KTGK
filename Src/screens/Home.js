@@ -30,7 +30,6 @@ const Home = ({navigation}) => {
   };
 
   useEffect(() => {
-    // console.log(store.user);
     onChangeButton();
 
     firestore()
@@ -55,12 +54,14 @@ const Home = ({navigation}) => {
     <View>
       <Appbar.Header>
         <Appbar.Content title={store.user.fullName} />
-        <Appbar.Action
-          icon="logout"
+        <Appbar.Content
+          titleStyle={{ fontSize: 16,color: 'red' }}
+          title={'Logout'}
           onPress={() => {
             store.logout();
             navigation.navigate('Login');
           }}
+          style={{ flex: 1, alignItems: 'flex-end', marginRight: 15 }}
         />
       </Appbar.Header>
       <View
@@ -83,6 +84,7 @@ const Home = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
             marginLeft: 8,
+            backgroundColor: '#5ed3f3'
           }}
           disabled={disabled}
           onPress={() => onPress()}>
